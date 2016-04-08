@@ -249,7 +249,7 @@ public class Inscription extends javax.swing.JFrame {
             this.dispose();
             PreparedStatement Inscription = this.connection.prepareStatement("Insert INTO Identifiants "+ 
             "VALUES('"+jTextField1.getText()+"','"+s+"','"+jTextField3.getText()+"','"
-                    +jTextField4.getText()+"','"+jTextField2.getText()+"',0,0,0,0,0,0,0,0,0,0)");
+                    +jTextField4.getText()+"','"+jTextField2.getText()+"',0,0,0,0,0,0,0,0,0,0,1000000)");
             ResultSet res2 = Inscription.executeQuery();
             PreparedStatement commit = this.connection.prepareStatement("commit");
 	    ResultSet res = commit.executeQuery();
