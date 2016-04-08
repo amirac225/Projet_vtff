@@ -1,6 +1,14 @@
 
-import java.util.HashMap;
-
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,13 +20,13 @@ import java.util.HashMap;
  * @author belkotam
  */
 public class Inscription extends javax.swing.JFrame {
-
+    private Connection connection;
     /**
      * Creates new form Inscription
      */
-    public Inscription(HashMap<String,String> map) {
+    public Inscription(Connection connection) {
         initComponents();
-        this.map=map;
+        this.connection=connection;
     }
 
     /**
@@ -215,7 +223,7 @@ public class Inscription extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        new NewJFrame(map).setVisible(true);
+        new NewJFrame(connection).setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jButton1AncestorAdded
@@ -224,21 +232,39 @@ public class Inscription extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         System.out.print(jPasswordField1.getPassword());
-        if (map.containsKey(jTextField1.getText())){
-            new ErreurInscription().setVisible(true);
-            
-        }
-        else{
+        try{
+        PreparedStatement Loginutilise = this.connection.prepareStatement(
+                    "SELECT Login from Identifiants"
+                    + " where Login='"+jTextField1.getText()+"'");
+        ResultSet res1 = Loginutilise.executeQuery();
+        if (res1.next()) {
+            new ErreurInscription().setVisible(true);  
+            }
+        else{ 
             String s=new String(jPasswordField1.getPassword());
-            map.put(jTextField1.getText(),s);
+            String s2=new String(jPasswordField2.getPassword());
+            if(!s.equals(s2))
+                new ErreurInscription2().setVisible(true);
+            else{
             this.dispose();
-            new NewJFrame(map).setVisible(true);
+            PreparedStatement Inscription = this.connection.prepareStatement("Insert INTO Identifiants "+ 
+            "VALUES('"+jTextField1.getText()+"','"+s+"','"+jTextField3.getText()+"','"
+                    +jTextField4.getText()+"','"+jTextField2.getText()+"',0,0,0,0,0,0,0,0,0,0)");
+            ResultSet res2 = Inscription.executeQuery();
+            PreparedStatement commit = this.connection.prepareStatement("commit");
+	    ResultSet res = commit.executeQuery();
+            new NewJFrame(connection).setVisible(true);
+            }
+        }
+           res1.close(); 
+        } catch (SQLException ex) {
+            Logger.getLogger(Inscription.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
-    HashMap<String,String> map ;
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

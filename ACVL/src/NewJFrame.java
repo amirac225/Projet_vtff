@@ -1,6 +1,6 @@
 
 import java.util.HashMap;
-
+import java.sql.Connection;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,13 +11,13 @@ import java.util.HashMap;
  * @author belkotam
  */
 public class NewJFrame extends javax.swing.JFrame {
-
+    private Connection connection;
     /**
      * Creates new form NewJFrame
      */
-    public NewJFrame(HashMap<String,String> map) {
+    public NewJFrame(Connection connection) {
         initComponents();
-        this.map=map;
+        this.connection=connection;
     }
 
     /**
@@ -133,12 +133,12 @@ public class NewJFrame extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        new Inscription(map).setVisible(true);
+        new Inscription(connection).setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.dispose();
-        new Authentification(map).setVisible(true);
+        new Authentification(connection).setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
