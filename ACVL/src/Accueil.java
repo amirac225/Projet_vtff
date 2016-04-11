@@ -10,12 +10,12 @@ import java.sql.Connection;
  *
  * @author belkotam
  */
-public class NewJFrame extends javax.swing.JFrame {
+public class Accueil extends javax.swing.JFrame {
     private Connection connection;
     /**
      * Creates new form NewJFrame
      */
-    public NewJFrame(Connection connection) {
+    public Accueil(Connection connection) {
         initComponents();
         this.connection=connection;
     }

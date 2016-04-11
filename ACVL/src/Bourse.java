@@ -13,16 +13,16 @@ import java.sql.Connection;
 public class Bourse extends javax.swing.JFrame {
     private String Login;
     private Connection connection;
-    Stock DBK = StockFetcher.getStock("DBK.DE");
-    Stock FB = StockFetcher.getStock("FB");
-    Stock AAPL = StockFetcher.getStock("AAPL");
-    Stock DAC = StockFetcher.getStock("DAC");
-    Stock VA = StockFetcher.getStock("VA");
-    Stock ALG = StockFetcher.getStock("ALG");
-    Stock VWA = StockFetcher.getStock("VWA.AS");
-    Stock GOOGL = StockFetcher.getStock("GOOGL");
-    Stock MAR = StockFetcher.getStock("MAR");
-    Stock GS = StockFetcher.getStock("GS");
+    Action DBK = ActionFetcher.getStock("DBK.DE");
+    Action FB = ActionFetcher.getStock("FB");
+    Action AAPL = ActionFetcher.getStock("AAPL");
+    Action DAC = ActionFetcher.getStock("DAC");
+    Action VA = ActionFetcher.getStock("VA");
+    Action ALG = ActionFetcher.getStock("ALG");
+    Action VWA = ActionFetcher.getStock("VWA.AS");
+    Action GOOGL = ActionFetcher.getStock("GOOGL");
+    Action MAR = ActionFetcher.getStock("MAR");
+    Action GS = ActionFetcher.getStock("GS");
     /**
      * Creates new form Bourse
      */
@@ -244,7 +244,7 @@ public class Bourse extends javax.swing.JFrame {
 
         jLabel6.setText("Argent");
 
-        jButton12.setText("Porte feuille");
+        jButton12.setText("Portefeuille");
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton12ActionPerformed(evt);
@@ -523,68 +523,68 @@ public class Bourse extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        //this.dispose();
+        this.dispose();
         new Principal(Login,connection).setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         //this.dispose();
-        new Action(DBK,Login,connection).setVisible(true);
+        new Operation(DBK,Login,connection).setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         //this.dispose();
-        new Action(FB,Login,connection).setVisible(true);
+        new Operation(FB,Login,connection).setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         //this.dispose();
-        new Action(AAPL,Login,connection).setVisible(true);
+        new Operation(AAPL,Login,connection).setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         //this.dispose();
-        new Action(DAC,Login,connection).setVisible(true);
+        new Operation(DAC,Login,connection).setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
         //this.dispose();
-        new Action(VA,Login,connection).setVisible(true);
+        new Operation(VA,Login,connection).setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
         //this.dispose();
-        new Action(ALG,Login,connection).setVisible(true);
+        new Operation(ALG,Login,connection).setVisible(true);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
         //this.dispose();
-        new Action(VWA,Login,connection).setVisible(true);
+        new Operation(VWA,Login,connection).setVisible(true);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
         //this.dispose();
-        new Action(GOOGL,Login,connection).setVisible(true);
+        new Operation(GOOGL,Login,connection).setVisible(true);
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
         //this.dispose();
-        new Action(MAR,Login,connection).setVisible(true);
+        new Operation(MAR,Login,connection).setVisible(true);
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
         //this.dispose();
-        new Action(GS,Login,connection).setVisible(true);
+        new Operation(GS,Login,connection).setVisible(true);
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed

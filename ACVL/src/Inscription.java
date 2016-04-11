@@ -223,7 +223,7 @@ public class Inscription extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        new NewJFrame(connection).setVisible(true);
+        new Accueil(connection).setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jButton1AncestorAdded
@@ -253,7 +253,7 @@ public class Inscription extends javax.swing.JFrame {
             ResultSet res2 = Inscription.executeQuery();
             PreparedStatement commit = this.connection.prepareStatement("commit");
 	    ResultSet res = commit.executeQuery();
-            new NewJFrame(connection).setVisible(true);
+            new Accueil(connection).setVisible(true);
             }
         }
            res1.close(); 

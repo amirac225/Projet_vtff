@@ -36,7 +36,7 @@ public class main  {
             String passwd = "belkotam";
             connection = DriverManager.getConnection(url, user, passwd);
             connection.setAutoCommit(false);
-            new NewJFrame(connection).setVisible(true);
+            new Accueil(connection).setVisible(true);
         } catch (SQLException e) {
             e.printStackTrace();
         }

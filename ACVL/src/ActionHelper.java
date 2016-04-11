@@ -1,9 +1,9 @@
 
 import java.util.regex.Pattern;
 
-public class StockHelper {
+public class ActionHelper {
 	
-	public StockHelper() {
+	public ActionHelper() {
 		
 	}
 	

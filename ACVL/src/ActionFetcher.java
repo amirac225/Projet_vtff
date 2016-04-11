@@ -8,7 +8,7 @@ import java.net.URLConnection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class StockFetcher {  
+public class ActionFetcher {  
 	
 	/*
 	* Returns a Stock Object that contains info about a specified stock.
@@ -16,7 +16,7 @@ public class StockFetcher {
 	* @return 	a stock object containing info about the company's stock
 	* @see Stock
 	*/
-	static Stock getStock(String symbol) {  
+	static Action getStock(String symbol) {  
 		String sym = symbol.toUpperCase();
 		double price = 0.0;
 		int volume = 0;
@@ -48,7 +48,7 @@ public class StockFetcher {
 			String[] stockinfo = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
 			
 			// Handle Our Data
-			StockHelper sh = new StockHelper();
+			ActionHelper sh = new ActionHelper();
 			
 			price = sh.handleDouble(stockinfo[0]);
 			volume = sh.handleInt(stockinfo[1]);
@@ -68,12 +68,12 @@ public class StockFetcher {
 			exchange = stockinfo[15].replace("\"", "");
 			
 		} catch (IOException e) {
-			Logger log = Logger.getLogger(StockFetcher.class.getName()); 
+			Logger log = Logger.getLogger(ActionFetcher.class.getName()); 
 			log.log(Level.SEVERE, e.toString(), e);
 			return null;
 		}
 		
-		return new Stock(sym, price, volume, pe, eps, week52low, week52high, daylow, dayhigh, movingav50day, marketcap, name,currency, shortRatio,previousClose,open,exchange);
+		return new Action(sym, price, volume, pe, eps, week52low, week52high, daylow, dayhigh, movingav50day, marketcap, name,currency, shortRatio,previousClose,open,exchange);
 		
 	}
 }
