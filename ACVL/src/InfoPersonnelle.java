@@ -1,5 +1,10 @@
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -20,7 +25,20 @@ private Connection connection;
         initComponents();
         this.connection=connection;
         this.Login=Login;
-        
+        try{
+        PreparedStatement Loginutilise = this.connection.prepareStatement(
+                    "SELECT Login,Nom,Prenom,email from Identifiants"
+                    + " where Login='"+this.Login+"'");
+        ResultSet res1 = Loginutilise.executeQuery();
+        res1.next();
+        jLabel4.setText(res1.getString(1));
+        jLabel5.setText(res1.getString(2));
+        jLabel6.setText(res1.getString(3));
+        jLabel8.setText(res1.getString(4));
+        }catch (SQLException ex) {
+            Logger.getLogger(Authentification.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        } 
     }
 
     /**
