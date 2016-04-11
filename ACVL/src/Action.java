@@ -13,16 +13,16 @@ import java.sql.Connection;
 public class Action extends javax.swing.JFrame {
 private String Login;
 private Connection connection;
-private Integer numAction;
+private Stock Action;
    
     /**
      * Creates new form Action
      */
-    public Action(Integer num,String Login,Connection connection) {
+    public Action(Stock Action,String Login,Connection connection) {
         initComponents();
         this.connection=connection;
         this.Login=Login;
-        this.numAction=num;
+        this.Action=Action;
     }
 
     /**
